@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+	<style>
+		.navigation {
+			list-style: none;
+			margin:0;
+			background:#18227c;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-flow:row wrap;
+			justify-content:center;
+			
+		}
+		.navigation a {
+			text-decoration: none;
+			display: block;
+			padding: 1em;
+			color:#e2f6ff;
+			font-family: 'Chakra Petch', sans-serif;
+			font-size:24px;
+		}
+		.navigation a:hover {
+			background:#4fc3f7; 
+		}
+		@media all and(max-width: 800px){
+			.navigation {
+				justify-content: space-around;
+			}
+		}
+		@media all and (max-width: 600px){
+			.navigation {
+				-webkit-flex-flow: column wrap;
+				padding: 0;
+			}
+			.navigation a{
+				text-align: center;
+				padding: 10px;
+				border-top:1px solid rgba(255,255,255,0.3);
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+			}
+			}
+		}
+					
+		}
+		
+		.picture {
+			display:block;
+		}
+		.container {
+			position:relative;
+			height:650px;
+
+		}
+		.textblock {
+			position: absolute;
+			background-color: rgba(0,0,0,0.5);
+			color: white;
+			bottom:300px;
+			width:100%;
+			text-align: center;
+			font-size:24pt;
+			font-family: 'Chakra Petch', sans-serif;
+		}
+		.relativee {
+			position:relative;
+		}
+		#content {
+			position:relative;
+			left:50%;
+			height:200px;
+
+		}
+
+		#egg {
+			position:relative;
+			display:block;
+		}
+		#idk {
+			left:50%;
+			position:relative;
+		}
+	</style>
+</head>
+<body style="margin:0px">
+<ul class="navigation">
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Profile</a></li>
+	<li><a href="#">Gallery</a></li>
+	<li><a href="#">Random Things</a></li>
+</ul>
+
+<div class="container">
+	<img class="picture" src="https://u.imageresize.org/v2/220086c7-ea93-4497-b386-3c34e0a7bad3.png" style="width:100%; height:650px;">
+	<div class="textblock">
+	<h3>“The reason birds can fly and we can't is simply because they have perfect faith, for to have faith is to have wings.”</h3>
+	</div>
+</div>
+
+
+  <div id="idk" style="height:100px;"></div>
+  <div id="content" >
+  	<div class="egg_count">0 Taps!</div>
+  	<p style="display:inline;" >Multiplier: </p>
+  	<spanny id="multiplier">1</spanny>	
+  	<img id="egg" src="EGG.jpeg" style="width:150px;" onclick="zoomy()">
+  	<button onclick="upgrade()">Upgrade<br>[25]</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function suprise() {
+	var egg_count = document.getElementsByClassName("egg_count")[0];
+	if (egg_count.innerText.slice(0, -6) > 2000) {
+		var video = document.createElement('video');
+
+		video.src = 'cockatoo_yelling_xD.mp4';
+
+		video.autoplay = true;
+
+		document.body.appendChild(video);
+	}
+
+	else {
+		var a = 1;
+	}
+
+}
+
+
+
+function zoomy(){
+
+var x = document.getElementById("egg");
+var multiplier = document.getElementsByTagName("spanny")[0];
+setTimeout(function(){ x.style.width="160px" }, 100);
+setTimeout(function(){ x.style.width="150px" }, 150);
+createNumbers("+" + multiplier.innerText);
+var egg_counts = document.getElementsByClassName("egg_count")[0];
+egg_counts.style.fontSize="22px";
+egg_counts.innerText = egg_counts.innerText.slice(0, -6)* 1 + multiplier.innerText * 1 + " Taps!";
+if (egg_counts.innerText.slice(0, -6) > 50) {
+		var video = document.createElement('video');
+
+		video.src = 'cockatoo_yelling_xD.mp4';
+		var obj = document.getElementById('idk');
+
+
+		video.autoplay = true;
+
+		obj.appendChild(video);
+	}
+
+	else {
+		var a = 1;
+	}
+
+
+
+}
+function createNumbers(num) {
+	var box = document.createElement('div');
+	box.innerText = num;
+	box.style.fontSize = "25px";
+	box.style.color = "black";
+	box.style.fontWeight = "bold";
+	box.style.position = "fixed";
+
+	box.style.top = Math.random() * 100 + 50 + "vh";
+	box.style.left = Math.random() * 100 + "vw";
+	box.style.opacity = 1;
+	document.getElementById('content').appendChild(box);
+
+	var gone = setInterval (function() {
+		if (box.style.opacity == 0.1) {
+			clearInterval(gone) ;
+			document.getElementById("content").removeChild(box) ;
+		}
+		box.style.opacity -= 0.1;
+	}, 200) ;
+	
+}
+function upgrade() {
+	var egg_count = document.getElementsByClassName("egg_count")[0];
+	var multiplier = document.getElementsByTagName("spanny")[0];
+	var cost = document.getElementsByTagName("button")[0];
+	if (egg_count.innerText.slice(0, -6) * 1 >=multiplier.innerText * 25) {
+
+		egg_count.innerText = egg_count.innerText.slice(0, -6) - multiplier.innerText * 25 + " Taps!";
+		multiplier.innerText *=2 ;
+		cost.innerHTML = "Upgrade<br>(" + multiplier.innerText * 25 + ")";
+		cost.style.color = "black";
+	
+		
+	} else {
+		cost.style.color = "red";
+	}
+}
+
+
+
+
+</script>
+</body>
+
+</html>
