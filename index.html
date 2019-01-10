@@ -80,6 +80,7 @@
 		#egg {
 			position:relative;
 			display:block;
+			left: 50%;
 		}
 
 		@media screen and (min-width: 800px) {
@@ -90,6 +91,10 @@
 				margin:left: 400px;
 			}
 		}
+		.egg_count {
+			left:50%;
+		}
+
 	
 	</style>
 </head>
@@ -111,9 +116,11 @@
 
   <div id="idk" style=" margin-left:  height:100px;"></div>
   <div id="content" >
-  	<div class="egg_count">0 Taps!</div>
-  	<p style="display:inline;" >Multiplier: </p>
-  	<spanny id="multiplier">1</spanny>	
+  	<div style="text-align: center;" class="egg_count">0 Taps!</div>
+  <div style="text-align: center;">
+  	<p style="text-align: center; display: inline;" >Multiplier: </p>
+  	<spanny style="display:inline; " id="multiplier">1</spanny>	
+  </div>
   	<img id="egg" src="EGG.jpeg" style="width:150px;" onclick="zoomy()">
   	<button onclick="upgrade()">Upgrade<br>[25]</button>
   </div>
