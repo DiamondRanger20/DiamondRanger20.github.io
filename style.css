@@ -2,20 +2,47 @@
 *** GENERAL
 **********************************************/
 
+#dice1 {
+    top: 120px;
+}
+#dice2 {
+    top: 250px;
+}
+
+
+.finale {
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    top: 520px;
+    color: #555;
+    font-size: 18px;
+    font-family: 'Lato';
+    text-align: center;
+    padding: 10px;
+    width: 160px;
+    text-transform: uppercase;
+}
+
+
+.finale:focus {
+    outline: none;
+    color: #033cff;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-}
+ 
+}   
 
 .clearfix::after {
     content: "";
     display: table;
     clear: both;
 }
-
-/* */
 
 body {
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(Bird.jpg);
@@ -26,7 +53,6 @@ body {
     position: relative;
     height: 100vh;
     color: #555;
-
 }
 
 .wrapper {
